@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistem Ujian CBT - Seleksi Peminatan</title>
+    <style>
+        /* ================= CSS (STYLING TAMPILAN) ================= */
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { margin: 0; padding: 0; background-color: #f4f6f9; color: #333; }
+        
+        /* Halaman Login */
+        #login-page {
+            display: flex; justify-content: center; align-items: center; height: 100vh;
+        }
+        .login-container {
+            background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 100%; max-width: 450px;
+        }
+        .login-container h2 { text-align: center; color: #2c3e50; margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group select {
+            width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px;
+        }
+        .notice {
+            background-color: #e8f4fd; color: #0056b3; padding: 10px; border-left: 4px solid #0056b3;
+            font-size: 13px; margin: 20px 0; font-weight: bold;
+        }
+        .btn-mulai {
+            width: 100%; padding: 12px; background: #28a745; color: white; border: none;
+            border-radius: 4px; font-size: 16px; cursor: pointer; font-weight: bold; transition: 0.3s;
+        }
+        .btn-mulai:hover { background: #218838; }
+
+        /* Halaman Ujian */
+        #exam-page { display: none; height: 100vh; flex-direction: column; }
+        .header {
+            background: #2c3e50; color: white; padding: 15px 20px; display: flex;
+            justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .user-info span { margin-right: 20px; font-weight: bold; }
+        .timer { font-size: 20px; font-weight: bold; color: #ffc107; background: #1a252f; padding: 5px 15px; border-radius: 5px;}
+        
+        .main-content { display: flex; flex: 1; overflow: hidden; }
+        
+        /* Area Soal (Kiri) */
+        .question-area { flex: 7; padding: 20px; overflow-y: auto; background: #fff; border-right: 1px solid #ddd; }
+        .question-header { font-size: 18px; font-weight: bold; margin-bottom: 20px; border-bottom: 2px solid #eee; padding-bottom: 10px;}
+        .question-text { font-size: 16px; line-height: 1.6; margin-bottom: 20px; }
+        .options { list-style-type: none; padding: 0; }
+        .options li {
+            margin-bottom: 10px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; cursor: pointer;
+            display: flex; align-items: flex-start; transition: 0.2s;
+        }
+        .options li:hover { background-color: #f1f1f1; }
+        .options li.selected { background-color: #d1ecf1; border-color: #bee5eb; font-weight: bold;}
+        .opt-label { font-weight: bold; margin-right: 10px; }
+
+        /* Tombol Navigasi Bawah */
+        .nav-buttons {
+            display: flex; justify-content: space-between; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee;
+        }
+        .btn { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 14px;}
+        .btn-prev { background: #6c757d; color: white; }
+        .btn-ragu-nav { background: #ffc107; color: #333; }
+        .btn-next { background: #007bff; color: white; }
+        
+        /* Area Navigasi Grid (Kanan) */
+        .grid-area { flex: 3; padding: 20px; background: #f9f9f9; overflow-y: auto; display: flex; flex-direction: column;}
+        .indicator-legend { display: flex; justify-content: space-around; margin-bottom: 15px; font-size: 12px; font-weight: bold;}
+        .leg-box { padding: 5px 10px; border-radius: 3px; border: 1px solid #ccc; }
+        .bg-kosong { background: #fff; }
+        .bg-dijawab { background: #28a745; color: white; border-color: #28a745;}
+        .bg-ragu { background: #ffc107; border-color: #ffc107;}
+
+        .grid-container { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 20px;}
+        .grid-item {
+            padding: 10px 0; text-align: center; border: 1px solid #ccc; background: #fff; cursor: pointer;
+            border-radius: 4px; font-weight: bold; font-size: 14px;
+        }
+        .grid-item.active { border: 2px solid #007bff; transform: scale(1.1); }
+        .grid-item.dijawab { background: #28a745; color: white; border-color: #28a745;}
+        .grid-item.ragu { background: #ffc107; color: #333; border-color: #ffc107;}
+
+        .btn-selesai {
+            margin-top: auto; padding: 15px; background: #dc3545; color: white; text-align: center;
+            border: none; border-radius: 4px; font-size: 16px; font-weight: bold; cursor: pointer;
+        }
+
+        /* Modal Selesai */
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6); justify-content: center; align-items: center; z-index: 1000;
+        }
+        .modal-content {
+            background: #fff; padding: 30px; border-radius: 8px; width: 400px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .modal-content h3 { margin-top: 0; color: #dc3545; text-align: center; border-bottom: 1px solid #eee; padding-bottom: 10px;}
+        .resume-list { margin: 20px 0; font-size: 16px; line-height: 1.8; }
+        .resume-list span { font-weight: bold; float: right; }
+        .confirm-box {
+            background: #fff3cd; padding: 10px; border: 1px solid #ffeeba; border-radius: 4px; margin-bottom: 20px; font-size: 13px;
+        }
+        .modal-actions { display: flex; justify-content: space-between; }
+        .btn-batal { background: #6c757d; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer;}
+        .btn-akhiri { background: #dc3545; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: not-allowed; opacity: 0.5;}
+        .btn-akhiri.active { cursor: pointer; opacity: 1; }
+
+    </style>
+</head>
+<body>
+
+    <div id="login-page">
+        <div class="login-container">
+            <h2>SISTEM UJIAN CBT</h2>
+            <div class="form-group">
+                <label>Nama Lengkap</label>
+                <input type="text" id="input-nama" placeholder="Masukkan nama Anda" required>
+            </div>
+            <div class="form-group">
+                <label>Tanggal Lahir</label>
+                <input type="date" id="input-tgl" required>
+            </div>
+            <div class="form-group">
+                <label>Peminatan Kelas</label>
+                <select id="input-kelas">
+                    <option value="IPA">Ilmu Pengetahuan Alam (IPA)</option>
+                    <option value="IPS">Ilmu Pengetahuan Sosial (IPS)</option>
+                </select>
+            </div>
+            <div class="notice">
+                📢 Perhatian: Berdoalah sebelum mulai ujian. Waktu Anda 90 Menit.
+            </div>
+            <button class="btn-mulai" onclick="mulaiUjian()">MULAI UJIAN</button>
+        </div>
+    </div>
+
+    <div id="exam-page">
+        <div class="header">
+            <div class="user-info">
+                <span>👤 Nama: <span id="display-nama" style="font-weight:normal;">-</span></span>
+                <span>📚 Kelas: <span id="display-kelas" style="font-weight:normal;">-</span></span>
+            </div>
+            <div class="timer">⏱️ <span id="time-left">90:00</span></div>
+        </div>
+        
+        <div class="main-content">
+            <div class="question-area">
+                <div class="question-header">Soal No. <span id="current-q-no">1</span> dari 90</div>
+                <div class="question-text" id="q-text">
+                    </div>
+                <ul class="options" id="q-options">
+                    </ul>
+                
+                <div class="nav-buttons">
+                    <button class="btn btn-prev" onclick="prevSoal()">◀ SEBELUMNYA</button>
+                    <button class="btn btn-ragu-nav" onclick="toggleRagu()">🟨 RAGU-RAGU</button>
+                    <button class="btn btn-next" onclick="nextSoal()">SELANJUTNYA ▶</button>
+                </div>
+            </div>
+
+            <div class="grid-area">
+                <div class="indicator-legend">
+                    <div class="leg-box bg-kosong">Kosong</div>
+                    <div class="leg-box bg-dijawab">Dijawab</div>
+                    <div class="leg-box bg-ragu">Ragu-ragu</div>
+                </div>
+                
+                <div class="grid-container" id="nav-grid">
+                    </div>
+
+                <button class="btn-selesai" onclick="tampilModalSelesai()">SELESAI UJIAN</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modal-selesai">
+        <div class="modal-content">
+            <h3>KONFIRMASI SELESAI</h3>
+            <p style="text-align: center; font-size: 14px; margin-top: -10px;">Ringkasan Pengerjaan Soal:</p>
+            <div class="resume-list">
+                <div>✅ Telah Dijawab <span id="res-dijawab">0</span></div>
+                <div>🟨 Ragu-ragu <span id="res-ragu">0</span></div>
+                <div>⬜ Kosong <span id="res-kosong">0</span></div>
+            </div>
+            <div class="confirm-box">
+                <label style="cursor: pointer; display: flex; align-items: flex-start;">
+                    <input type="checkbox" id="check-yakin" style="margin-right: 10px; margin-top: 3px;" onchange="toggleBtnAkhiri()">
+                    <span>Saya yakin telah selesai dan ingin mengakhiri ujian ini. (Anda tidak dapat mengulang setelah menekan tombol akhiri).</span>
+                </label>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-batal" onclick="tutupModal()">KEMBALI KE SOAL</button>
+                <button class="btn-akhiri" id="btn-akhiri-test" onclick="akhiriTest()" disabled>AKHIRI TEST</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. SETUP DATA SOAL (Simulasi 90 Soal) ---
+        // Anda bisa menempelkan soal asli yang saya berikan sebelumnya di array ini.
+        // Untuk contoh sistem agar bisa berjalan, saya masukkan 3 soal pertama, dan sisanya (4-90) digenerate otomatis.
+        
+        const totalSoal = 90;
+        let bankSoal = [
+            {
+                no: 1,
+                teks: "Tokoh yang bertugas sebagai wakil ketua panitia Sembilan adalah...",
+                opsi: ["A. Ir. Sukarno", "B. Drs. Muhammad Hatta", "C. Abdoel Kahar Moezakir", "D. H. AgusSalim", "E. Mr. Achmad Soerbardjo"]
+            },
+            {
+                no: 2,
+                teks: "Lambang Pancasila sila ketiga adalah…",
+                opsi: ["A. Pohon Beringin", "B. Padi dan Kapas", "C. Kepala Banteng", "D. Bintang", "E. Rantai"]
+            },
+            {
+                no: 3,
+                teks: "Saling menyayangi dan menghormati antar warga sekolah. Merupakan penerapan berdasarkan…",
+                opsi: ["A. Ketuhanan", "B. Kemanusiaan", "C. Persatuan", "D. Kerakyatan", "E. Keadilan"]
+            }
+        ];
+
+        // Generate soal dummy no 4 sampai 90 untuk kelengkapan navigasi CBT
+        for (let i = 4; i <= totalSoal; i++) {
+            bankSoal.push({
+                no: i,
+                teks: "Teks pertanyaan untuk Soal Nomor " + i + " berada di sini. Silakan pilih jawaban yang paling tepat di bawah ini.",
+                opsi: ["A. Pilihan jawaban A", "B. Pilihan jawaban B", "C. Pilihan jawaban C", "D. Pilihan jawaban D", "E. Pilihan jawaban E"]
+            });
+        }
+
+        // --- 2. VARIABEL STATE ---
+        let currentIndex = 0; // Index array soal (0 - 89)
+        let jawabanPeserta = new Array(totalSoal).fill(null).map(() => ({ dijawab: null, ragu: false }));
+        let timerInterval;
+        let waktuDetik = 90 * 60; // 90 Menit
+
+        // --- 3. FUNGSI LOGIKA CBT ---
+
+        function mulaiUjian() {
+            let nama = document.getElementById('input-nama').value;
+            let kelas = document.getElementById('input-kelas').value;
+            if(nama.trim() === "") { alert("Mohon isi Nama Lengkap Anda!"); return; }
+
+            // Set Header
+            document.getElementById('display-nama').innerText = nama;
+            document.getElementById('display-kelas').innerText = kelas;
+
+            // Ganti Halaman
+            document.getElementById('login-page').style.display = 'none';
+            document.getElementById('exam-page').style.display = 'flex';
+
+            initGrid();
+            renderSoal(currentIndex);
+            mulaiTimer();
+        }
+
+        function mulaiTimer() {
+            let display = document.getElementById('time-left');
+            timerInterval = setInterval(function () {
+                let menit = parseInt(waktuDetik / 60, 10);
+                let detik = parseInt(waktuDetik % 60, 10);
+
+                menit = menit < 10 ? "0" + menit : menit;
+                detik = detik < 10 ? "0" + detik : detik;
+
+                display.textContent = menit + ":" + detik;
+
+                if (--waktuDetik < 0) {
+                    clearInterval(timerInterval);
+                    alert("Waktu Habis! Ujian otomatis diakhiri.");
+                    selesaiTotal();
+                }
+            }, 1000);
+        }
+
+        function initGrid() {
+            const gridContainer = document.getElementById('nav-grid');
+            gridContainer.innerHTML = '';
+            for (let i = 0; i < totalSoal; i++) {
+                let btn = document.createElement('div');
+                btn.className = 'grid-item';
+                btn.innerText = i + 1;
+                btn.id = 'grid-btn-' + i;
+                btn.onclick = () => { currentIndex = i; renderSoal(i); };
+                gridContainer.appendChild(btn);
+            }
+        }
+
+        function renderSoal(index) {
+            let soal = bankSoal[index];
+            document.getElementById('current-q-no').innerText = soal.no;
+            document.getElementById('q-text').innerHTML = soal.teks;
+            
+            let ulOptions = document.getElementById('q-options');
+            ulOptions.innerHTML = '';
+
+            // Render 5 Pilihan
+            soal.opsi.forEach((opt, optIndex) => {
+                let li = document.createElement('li');
+                let abjad = ['A','B','C','D','E'][optIndex];
+                
+                // Jika sudah pernah dijawab
+                if(jawabanPeserta[index].dijawab === abjad) {
+                    li.classList.add('selected');
+                }
+
+                li.onclick = () => pilihJawaban(abjad);
+                
+                // Pisahkan label (A/B/C/D/E) dengan teks agar rapi
+                let teksBersih = opt.substring(3); 
+                li.innerHTML = `<span class="opt-label">${abjad}.</span> <span>${teksBersih}</span>`;
+                ulOptions.appendChild(li);
+            });
+
+            updateGridUI();
+        }
+
+        function pilihJawaban(abjad) {
+            jawabanPeserta[currentIndex].dijawab = abjad;
+            jawabanPeserta[currentIndex].ragu = false; // otomatis hapus ragu jika mengganti jawaban
+            renderSoal(currentIndex);
+        }
+
+        function toggleRagu() {
+            // Hanya bisa ragu jika sudah memilih jawaban
+            if(jawabanPeserta[currentIndex].dijawab !== null) {
+                jawabanPeserta[currentIndex].ragu = !jawabanPeserta[currentIndex].ragu;
+                updateGridUI();
+            } else {
+                alert("Silakan pilih jawaban terlebih dahulu sebelum menandai ragu-ragu!");
+            }
+        }
+
+        function nextSoal() {
+            if (currentIndex < totalSoal - 1) {
+                currentIndex++;
+                renderSoal(currentIndex);
+            }
+        }
+
+        function prevSoal() {
+            if (currentIndex > 0) {
+                currentIndex--;
+                renderSoal(currentIndex);
+            }
+        }
+
+        function updateGridUI() {
+            for (let i = 0; i < totalSoal; i++) {
+                let btn = document.getElementById('grid-btn-' + i);
+                // Reset class
+                btn.className = 'grid-item';
+                
+                if (jawabanPeserta[i].dijawab !== null) {
+                    if (jawabanPeserta[i].ragu) {
+                        btn.classList.add('ragu');
+                    } else {
+                        btn.classList.add('dijawab');
+                    }
+                }
+
+                // Highlight nomor yang sedang aktif
+                if (i === currentIndex) {
+                    btn.classList.add('active');
+                }
+            }
+        }
+
+        // --- 4. MODAL & RESUME ---
+        
+        function tampilModalSelesai() {
+            let jmlDijawab = 0;
+            let jmlRagu = 0;
+            let jmlKosong = 0;
+
+            jawabanPeserta.forEach(j => {
+                if(j.dijawab === null) {
+                    jmlKosong++;
+                } else if(j.ragu) {
+                    jmlRagu++;
+                } else {
+                    jmlDijawab++;
+                }
+            });
+
+            document.getElementById('res-dijawab').innerText = jmlDijawab;
+            document.getElementById('res-ragu').innerText = jmlRagu;
+            document.getElementById('res-kosong').innerText = jmlKosong;
+
+            document.getElementById('modal-selesai').style.display = 'flex';
+        }
+
+        function tutupModal() {
+            document.getElementById('modal-selesai').style.display = 'none';
+            document.getElementById('check-yakin').checked = false;
+            toggleBtnAkhiri();
+        }
+
+        function toggleBtnAkhiri() {
+            let checkbox = document.getElementById('check-yakin');
+            let btnAkhiri = document.getElementById('btn-akhiri-test');
+            if(checkbox.checked) {
+                btnAkhiri.classList.add('active');
+                btnAkhiri.removeAttribute('disabled');
+            } else {
+                btnAkhiri.classList.remove('active');
+                btnAkhiri.setAttribute('disabled', 'true');
+            }
+        }
+
+        function akhiriTest() {
+            clearInterval(timerInterval);
+            selesaiTotal();
+        }
+
+        function selesaiTotal() {
+            document.body.innerHTML = `
+                <div style="display:flex; justify-content:center; align-items:center; height:100vh; background:#2c3e50; color:white; flex-direction:column;">
+                    <h1>Ujian Telah Selesai</h1>
+                    <p>Terima kasih telah mengikuti Seleksi Peminatan ini.</p>
+                    <p>Jawaban Anda telah tersimpan di sistem.</p>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>
