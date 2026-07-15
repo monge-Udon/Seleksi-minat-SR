@@ -203,24 +203,458 @@
         // Untuk contoh sistem agar bisa berjalan, saya masukkan 3 soal pertama, dan sisanya (4-90) digenerate otomatis.
         
         const totalSoal = 90;
-        let bankSoal = [
-            {
-                no: 1,
-                teks: "Tokoh yang bertugas sebagai wakil ketua panitia Sembilan adalah...",
-                opsi: ["A. Ir. Sukarno", "B. Drs. Muhammad Hatta", "C. Abdoel Kahar Moezakir", "D. H. AgusSalim", "E. Mr. Achmad Soerbardjo"]
-            },
-            {
-                no: 2,
-                teks: "Lambang Pancasila sila ketiga adalah…",
-                opsi: ["A. Pohon Beringin", "B. Padi dan Kapas", "C. Kepala Banteng", "D. Bintang", "E. Rantai"]
-            },
-            {
-                no: 3,
-                teks: "Saling menyayangi dan menghormati antar warga sekolah. Merupakan penerapan berdasarkan…",
-                opsi: ["A. Ketuhanan", "B. Kemanusiaan", "C. Persatuan", "D. Kerakyatan", "E. Keadilan"]
-            }
-        ];
-
+        let bankSoal = const bankSoal = [
+    {
+        no: 1,
+        teks: "Tokoh yang bertugas sebagai wakil ketua panitia Sembilan adalah...",
+        opsi: ["A. Ir. Sukarno", "B. Drs. Muhammad Hatta", "C. Abdoel Kahar Moezakir", "D. H. AgusSalim", "E. Mr. Achmad Soerbardjo"]
+    },
+    {
+        no: 2,
+        teks: "Lambang Pancasila sila ketiga adalah…",
+        opsi: ["A. Pohon Beringin", "B. Padi dan Kapas", "C. Kepala Banteng", "D. Bintang", "E. Rantai"]
+    },
+    {
+        no: 3,
+        teks: "Saling menyayangi dan menghormati antar warga sekolah. Merupakan penerapan berdasarkan…",
+        opsi: ["A. Ketuhanan", "B. Kemanusiaan", "C. Persatuan", "D. Kerakyatan", "E. Keadilan"]
+    },
+    {
+        no: 4,
+        teks: "Indonesia merupakan warisan Hak Kekayaan Intelektual yang bagian leluhur seperti tradisional kerajinan Batik. Hal ini termasuk kedalam sila…",
+        opsi: ["A. Ketuhanan", "B. Kemanusiaan", "C. Persatuan", "D. Kerakyatan", "E. Keadilan"]
+    },
+    {
+        no: 5,
+        teks: "Memelihara ketertiban dunia tanpa menghasut atau memprovokasi antar masyarakat Indonesia melalui perkembangan teknologi. Merupakan pengalaman sila…",
+        opsi: ["A. Satu", "B. Dua", "C. Tiga", "D. Empat", "E. Lima"]
+    },
+    {
+        no: 6,
+        teks: "Gen Z dan Gen Alpha merupakan bagian golongan muda bangsa Indonesia, melalui kemajuan aplikasi TIKTOK gen tersebut memberikan dampak yang positif terhadap penggunaan teknologi. Berikut ini manakah yang termasuk sikap postif bagi pengguna Teknologi dikalangan pelajar, khususnya Pelajaran Pendidikan Pancasila?",
+        opsi: ["A. Mencari sumber informasi pembelajaran sesuai materi ajar yang disampaikan oleh guru yang bersangkutan", "B. Mendapatkan sumber informasi dan menyalin ke dalam buku tulis sesuai matapelajaran", "C. Bijak memilah materi yang cocok dijadikan referensi bacaan", "D. Meningkatkan semangat belajar melalui Audio Visual", "E. Semuanya Benar"]
+    },
+    {
+        no: 7,
+        teks: "Setiap moment hari ulang tahun Ibu Kota Indonesia merupakan warisan kekayaan yang berciri khas suku Betawi yang kental di zaman era modern seperti sekarang ini…",
+        opsi: ["A. Membuat Konser yang berhubungan Menghargai Nilai-Nilai Kearifan Lokal Daerah Tersebut", "B. Tidak mengubah keadaan kota tersebut peninggalan Batavia menjadikan Keasrian dan leluhur", "C. Mempertebal rasa persaudaraan dengan penerapan sila Persatuan Indonesia", "D. Memperkenalkan tokoh-tokoh yang berhubungan dengan kearifan lokal daerah tersebut", "E. Semuanya Benar"]
+    },
+    {
+        no: 8,
+        teks: "Sikap Saling menghargai sangat diperlukan untuk Negara Indonesia yang penuh dengan keaneragaman budaya. Sikap yang dapat memecahkan keutuhan bangsa sudah sepatutnya harus kita hindari. Salahsatu sikap yang dapat memecahkan keutuhan bangsa adalah…",
+        opsi: ["A. Chauvinisme", "B. Toleransi", "C. Komunikasi", "D. Primordialisme", "E. Etnosentrisme"]
+    },
+    {
+        no: 9,
+        teks: "Indonesia merupakan suku, Bahasa yang beragam. Maka untuk mempertegas dan perlindungan agar nilai-nilai dan kearifan lokal tidak hilang, maka hal ini diatur didalam…",
+        opsi: ["A. Pasal 36", "B. Pasal 32 ayat 1", "C. Pasal 32 ayat 2", "D. Pasal 28 D ayat 3", "E. Pasal 28 E ayat 1"]
+    },
+    {
+        no: 10,
+        teks: "Bunyi Pasal 32 ayat 1 tentang kebudayaan nasional Indonesia, adalah…",
+        opsi: ["A. Setiap warga negara berhak mendapatkan pengetahuan kebudayaan Indonesia", "B. Negara Indonesia dilandasi oleh keberagaman budaya", "C. Negara Indonesia terdiri banyak budaya", "D. Negara menghormati dan memelihara Bahasa daerag sebagai kekayan budaya nasional", "E. Negara Memajukkan kebudayaan nasional ditengah peradaban dunia dengan menjamin kebebasan masyarakat dalam memelihara dan mengembangkan nilai-nilai budayanya."]
+    },
+    {
+        no: 11,
+        teks: "Cara berpikir sejarah yang menekankan urutan waktu terjadinya suatu peristiwa, dari awal hingga akhir secara berkesinambungan, disebut cara berpikir...",
+        opsi: ["A. Diakronik", "B. Sinkronik", "C. Anakronik", "D. Periodisasi", "E. Kausalitas"]
+    },
+    {
+        no: 12,
+        teks: "Ketika seorang sejarawan meneliti kondisi sosial masyarakat Yogyakarta pada tahun 1945 secara mendalam tanpa membandingkannya dengan tahun-tahun lain, ia sedang menerapkan cara berpikir...",
+        opsi: ["A. Diakronik", "B. Sinkronik", "C. Periodisasi", "D. Kronik", "E. Anakronik"]
+    },
+    {
+        no: 13,
+        teks: "Penemuan kapak genggam dan alat serpih dalam jumlah besar di Pacitan menjadi salah satu bukti bahwa manusia purba di Indonesia telah mengenal kebudayaan...",
+        opsi: ["A. Neolitikum", "B. Mesolitikum", "C. Paleolitikum", "D. Megalitikum", "E. Perundagian"]
+    },
+    {
+        no: 14,
+        teks: "Kehidupan manusia purba pada masa berburu dan meramu memiliki beberapa ciri khas, di antaranya hidup berpindah-pindah, mengandalkan hasil alam untuk bertahan hidup, dan masih menggunakan alat-alat dari batu yang sederhana. Ciri-ciri tersebut menunjukkan bahwa manusia purba pada masa itu...",
+        opsi: ["A. Belum mampu mengolah lingkungan alam sekitarnya", "B. Sudah mengenal sistem pertanian menetap", "C. Sudah membentuk struktur pemerintahan sederhana", "D. Sudah mengenal sistem kepercayaan yang kompleks", "E. Hidup dalam kelompok besar yang terorganisasi rapi"]
+    },
+    {
+        no: 15,
+        teks: "Beberapa ahli sejarah mengajukan teori berbeda tentang siapa yang berperan membawa pengaruh Hindu-Buddha ke Nusantara, mulai dari kalangan pedagang, prajurit, hingga golongan pendeta. Perbedaan pandangan tersebut menunjukkan bahwa...",
+        opsi: ["A. Tidak ada satu pun teori yang dapat dipertanggungjawabkan secara ilmiah", "B. Hindu-Buddha sebenarnya tidak pernah masuk ke Nusantara", "C. Hanya golongan pedagang yang memiliki bukti sejarah yang kuat", "D. Seluruh teori tersebut telah dibuktikan kebenarannya secara mutlak", "E. Proses masuknya Hindu-Buddha ke Nusantara masih menjadi bahan kajian dan penafsiran terbuka bagi para sejarawan"]
+    },
+    {
+        no: 16,
+        teks: "Sebelum menuliskan suatu peristiwa sejarah, seorang peneliti perlu mengumpulkan sumber-sumber terkait, menguji keaslian dan kebenarannya, kemudian menafsirkan maknanya sebelum akhirnya menyusunnya menjadi sebuah tulisan sejarah. Rangkaian kegiatan tersebut menggambarkan tahapan dalam...",
+        opsi: ["A. Penulisan biografi tokoh", "B. Penyusunan kurikulum sejarah", "C. Metode penelitian sejarah", "D. Pembuatan museum sejarah", "E. Penelitian arkeologi semata"]
+    },
+    {
+        no: 17,
+        teks: "Teori Ksatria meyakini bahwa Hindu-Buddha dibawa masuk ke Nusantara oleh para prajurit India yang kalah dalam peperangan di negerinya, lalu mendirikan kerajaan baru di wilayah Nusantara. Namun, hingga kini belum ditemukan satu pun prasasti atau catatan sejarah India yang menyebutkan adanya ekspedisi militer ke Nusantara pada masa itu. Fakta tersebut menunjukkan bahwa kelemahan utama Teori Ksatria terletak pada...",
+        opsi: ["A. Prajurit India dianggap tidak memahami adat istiadat Nusantara", "B. Tidak adanya bukti tertulis yang mendukung klaim adanya penaklukan militer", "C. Larangan agama Hindu bagi para ksatria untuk berlayar", "D. Prasasti-prasasti yang ditemukan seluruhnya berbahasa Pallawa", "E. Sistem kerajaan di Nusantara sudah lebih maju daripada di India"]
+    },
+    {
+        no: 18,
+        teks: "Bentuk bangunan candi di Indonesia banyak yang tetap mempertahankan susunan bertingkat menyerupai punden berundak, tradisi asli masyarakat Nusantara sejak zaman megalitikum, meskipun ornamen dan ajaran yang menyertainya berasal dari India. Fenomena tersebut paling tepat mencerminkan sikap bangsa Indonesia yang...",
+        opsi: ["A. Mampu memadukan unsur budaya luar dengan kearifan lokal yang telah ada sejak lama", "B. Menerima seluruh kebudayaan asing tanpa penyesuaian", "C. Menolak sepenuhnya masuknya unsur kebudayaan asing", "D. Mengganti seluruh kepercayaan asli dengan ajaran dari India", "E. Hanya meniru bentuk fisik bangunan tanpa makna filosofis"]
+    },
+    {
+        no: 19,
+        teks: "Seorang peneliti tengah mengkaji sebuah prasasti kuno. Ia tidak langsung memercayai isi prasasti tersebut, melainkan lebih dulu memastikan keaslian bahan dan jenis aksaranya, kemudian membandingkan isinya dengan sumber-sumber sejarah lain sezaman. Suatu ketika, ditemukan artefak baru di tempat lain yang isinya justru bertentangan dengan prasasti tersebut. Sikap yang paling tepat diambil peneliti dalam situasi tersebut adalah...",
+        opsi: ["A. Tetap berpegang pada prasasti pertama karena telah lebih dulu diteliti", "B. Menyerahkan sepenuhnya persoalan tersebut kepada pihak berwenang", "C. Menganggap prasasti yang lebih tua otomatis lebih benar", "D. Mencampurkan kedua informasi tanpa proses pengujian lebih lanjut", "E. Meninjau ulang kedua sumber secara kritis dan mencari sumber pembanding lain sebelum mengambil kesimpulan"]
+    },
+    {
+        no: 20,
+        teks: "Di bawah kepemimpinan Hayam Wuruk dan Mahapatih Gajah Mada, Kerajaan Majapahit berhasil mempersatukan wilayah Nusantara yang terdiri atas berbagai suku, budaya, dan kepercayaan melalui semangat yang tertuang dalam Sumpah Palapa. Nilai dari peristiwa sejarah tersebut yang paling relevan diwariskan dalam kehidupan berbangsa Indonesia saat ini adalah...",
+        opsi: ["A. Sumpah Palapa dijadikan dasar hukum penyelenggaraan negara", "B. Gajah Mada dianggap sebagai peletak dasar sistem kepresidenan Indonesia", "C. Wilayah Indonesia saat ini sama persis dengan wilayah kekuasaan Majapahit", "D. Semangat mempersatukan keberagaman pada masa Majapahit menjadi salah satu akar nilai Bhinneka Tunggal Ika", "E. Sumpah Palapa merupakan naskah awal dari Sumpah Pemuda 1928"]
+    },
+    {
+        no: 21,
+        teks: "Konsep geografi yang mengkaji bentuk permukaan bumi sebagai hasil proses tenaga endogen dan eksogen disebut konsep ...",
+        opsi: ["A. Lokasi", "B. Morfologi", "C. Jarak", "D. Pola", "E. Aglomerasi"]
+    },
+    {
+        no: 22,
+        teks: "Peta yang dibuat dengan skala antara 1:100.000 hingga 1:250.000 termasuk ke dalam kategori peta berskala ...",
+        opsi: ["A. Sangat besar", "B. Besar", "C. Sedang", "D. Kecil", "E. Sangat kecil"]
+    },
+    {
+        no: 23,
+        teks: "Batuan yang terbentuk dari proses pembekuan magma, baik di permukaan maupun di dalam kerak bumi, disebut batuan ...",
+        opsi: ["A. Sedimen", "B. Metamorf", "C. Beku", "D. Organik", "E. Malihan"]
+    },
+    {
+        no: 24,
+        teks: "Perhatikan ciri-ciri berikut! (1) Terdapat lapisan ozon yang melindungi bumi dari radiasi ultraviolet (2) Suhu udara meningkat seiring bertambahnya ketinggian (3) Berada pada ketinggian sekitar 12–50 km dari permukaan bumi (4) Tidak terjadi fenomena cuaca seperti awan atau hujan. Ciri-ciri tersebut merupakan karakteristik lapisan atmosfer ...",
+        opsi: ["A. Troposfer", "B. Stratosfer", "C. Mesosfer", "D. Termosfer", "E. Eksosfer"]
+    },
+    {
+        no: 25,
+        teks: "Perhatikan ciri-ciri berikut! (1) Magma bersifat cair dan mudah mengalir (2) Tekanan gas relatif rendah (3) Erupsi berlangsung tenang tanpa ledakan besar (4) Lava mengalir membentuk lereng yang landai. Ciri-ciri tersebut sesuai dengan tipe letusan gunung api ...",
+        opsi: ["A. Vulkanian", "B. Hawaii", "C. Merapi", "D. Perret", "E. St. Vincent"]
+    },
+    {
+        no: 26,
+        teks: "Perhatikan faktor-faktor berikut! (1) Iklim (2) Organisme (3) Bahan induk (4) Topografi (5) Waktu. Kelima faktor tersebut merupakan faktor-faktor utama yang memengaruhi proses ...",
+        opsi: ["A. Pelapukan batuan", "B. Pembentukan tanah", "C. Erosi permukaan", "D. Sedimentasi", "E. Pergerakan lempeng"]
+    },
+    {
+        no: 27,
+        teks: "Wilayah Indonesia terletak pada pertemuan tiga lempeng tektonik utama, yaitu lempeng Indo-Australia, Eurasia, dan Pasifik. Berdasarkan kondisi tersebut, hubungan yang paling tepat menjelaskan tingginya intensitas gempa bumi dan aktivitas vulkanisme di Indonesia adalah ...",
+        opsi: ["A. Pertemuan lempeng menyebabkan wilayah Indonesia stabil secara geologis sehingga jarang terjadi gempa", "B. Interaksi antarlempeng menimbulkan tekanan dan pelepasan energi yang memicu gempa bumi serta membentuk jalur vulkanisme aktif", "C. Aktivitas vulkanisme di Indonesia tidak berkaitan dengan pergerakan lempeng tektonik", "D. Gempa bumi di Indonesia semata-mata disebabkan oleh aktivitas manusia seperti penambangan", "E. Pertemuan lempeng hanya berpengaruh terhadap kondisi iklim, bukan terhadap kondisi geologis"]
+    },
+    {
+        no: 28,
+        teks: "Suatu wilayah perbukitan mengalami deforestasi akibat alih fungsi lahan menjadi perkebunan monokultur, sementara curah hujan di wilayah tersebut tergolong tinggi dan kemiringan lerengnya curam. Berdasarkan keterkaitan ketiga kondisi tersebut, dampak yang paling mungkin terjadi adalah ...",
+        opsi: ["A. Risiko tanah longsor dan banjir bandang meningkat karena berkurangnya vegetasi penahan air dan tanah", "B. Risiko bencana menurun karena tanaman monokultur memiliki akar yang lebih kuat dibandingkan hutan alami", "C. Kondisi tersebut tidak berpengaruh terhadap kestabilan lereng", "D. Curah hujan tinggi hanya berdampak pada wilayah dataran rendah, bukan wilayah perbukitan", "E. Deforestasi hanya berdampak pada kualitas udara, bukan pada kestabilan lereng"]
+    },
+    {
+        no: 29,
+        teks: "Sebuah wilayah pesisir yang rawan gempa dan tsunami berencana menyusun rencana tata ruang wilayah yang tangguh bencana. Apabila pendekatan geografi — keruangan, ekologi, dan kompleks wilayah — diterapkan secara terintegrasi, strategi yang paling tepat mencerminkan ketiga pendekatan tersebut adalah ...",
+        opsi: ["A. Membangun permukiman padat di sepanjang garis pantai untuk memaksimalkan akses ekonomi", "B. Menetapkan zonasi tata ruang berbasis jalur evakuasi dan daya dukung lingkungan, sekaligus mengintegrasikan aspek sosial-ekonomi masyarakat pesisir", "C. Melarang seluruh aktivitas manusia di wilayah pesisir tanpa mempertimbangkan kebutuhan ekonomi masyarakat", "D. Membangun infrastruktur tanpa memperhatikan kondisi geologis maupun kondisi sosial wilayah", "E. Menunda seluruh perencanaan tata ruang hingga bencana benar-benar terjadi"]
+    },
+    {
+        no: 30,
+        teks: "Teknologi Sistem Informasi Geografis (SIG) dan penginderaan jauh telah banyak dimanfaatkan untuk memantau perubahan tutupan lahan di kawasan hutan tropis. Apabila prinsip pemanfaatan kedua teknologi tersebut diperluas untuk mendukung sistem peringatan dini bencana kekeringan pada skala nasional, langkah yang paling tepat dilakukan adalah ...",
+        opsi: ["A. Mengandalkan sepenuhnya survei lapangan tanpa memanfaatkan data citra satelit", "B. Mengintegrasikan data citra satelit (kelembapan tanah, tutupan vegetasi, curah hujan) dengan basis data SIG untuk memetakan wilayah rawan kekeringan secara berkala", "C. Menggunakan data penginderaan jauh hanya sekali dalam satu dekade karena dianggap sudah representatif", "D. Membatasi pemanfaatan SIG hanya untuk wilayah perkotaan, bukan wilayah pertanian", "E. Mengabaikan data spasial karena dianggap tidak relevan dengan fenomena kekeringan"]
+    },
+    {
+        no: 31,
+        teks: "Hasil dari $25\\%$ dari $400$ ditambah dengan $\\frac{3}{4}$ dari $120$ adalah...",
+        opsi: ["A. 160", "B. 170", "C. 180", "D. 190", "E. 200"]
+    },
+    {
+        no: 32,
+        teks: "Nilai dari $(0,5)^2 + (0,1)^2 - 0,16$ adalah...",
+        opsi: ["A. 0,08", "B. 0,10", "C. 0,12", "D. 0,14", "E. 0,16"]
+    },
+    {
+        no: 33,
+        teks: "Jika $x = 12\\%$ dari $50$, dan $y = 50\\%$ dari $12$, maka hubungan $x$ dan $y$ yang benar adalah...",
+        opsi: ["A. x > y", "B. x < y", "C. x = y", "D. x = 2y", "E. Hubungan tidak dapat ditentukan"]
+    },
+    {
+        no: 34,
+        teks: "Berapakah nilai dari $\\frac{23^2 - 17^2}{6}$?",
+        opsi: ["A. 30", "B. 40", "C. 50", "D. 60", "E. 70"]
+    },
+    {
+        no: 35,
+        teks: "Lanjutkan deret angka berikut: 3, 7, 15, 31, 63, ...",
+        opsi: ["A. 125", "B. 127", "C. 128", "D. 131", "E. 135"]
+    },
+    {
+        no: 36,
+        teks: "Tentukan angka berikutnya dari deret: 2, 3, 6, 7, 14, 15, ...",
+        opsi: ["A. 16", "B. 28", "C. 29", "D. 30", "E. 31"]
+    },
+    {
+        no: 37,
+        teks: "Isilah titik-titik pada deret berikut: 100, 95, 85, 70, 50, ...",
+        opsi: ["A. 35", "B. 30", "C. 25", "D. 20", "E. 15"]
+    },
+    {
+        no: 38,
+        teks: "Lanjutkan deret angka kombinasi kuadrat berikut: 1, 4, 9, 16, 25, ...",
+        opsi: ["A. 30", "B. 34", "C. 36", "D. 40", "E. 49"]
+    },
+    {
+        no: 39,
+        teks: "Sebuah konveksi dapat menyelesaikan 150 potong pakaian dalam waktu 6 hari. Berapa banyak pakaian yang dapat diselesaikan dalam waktu 9 hari?",
+        opsi: ["A. 200 potong", "B. 225 potong", "C. 250 potong", "D. 275 potong", "E. 300 potong"]
+    },
+    {
+        no: 40,
+        teks: "Suatu proyek pembangunan gedung dapat diselesaikan oleh 12 orang dalam 30 hari. Jika proyek ingin diselesaikan dalam waktu 20 hari, berapakah jumlah pekerja tambahan yang dibutuhkan?",
+        opsi: ["A. 4 orang", "B. 6 orang", "C. 8 orang", "D. 12 orang", "E. 18 orang"]
+    },
+    {
+        no: 41,
+        teks: "Seorang pedagang membeli sepeda seharga Rp1.200.000. Setelah diperbaiki dengan biaya Rp200.000, sepeda tersebut dijual kembali dengan harga Rp1.680.000. Persentase keuntungan pedagang tersebut terhadap modal total adalah...",
+        opsi: ["A. 15%", "B. 20%", "C. 25%", "D. 30%", "E. 35%"]
+    },
+    {
+        no: 42,
+        teks: "Toko 'Maju Jaya' memberikan diskon berturut-turut sebesar 20% + 10% untuk sebuah jaket. Jika harga awal jaket adalah Rp200.000, berapakah harga yang harus dibayar pembeli setelah diskon ganda tersebut?",
+        opsi: ["A. Rp140.000", "B. Rp144.000", "C. Rp150.000", "D. Rp160.000", "E. Rp172.000"]
+    },
+    {
+        no: 43,
+        teks: "Dua tahun yang lalu, umur Ayah adalah 6 kali umur Budi. Jika tiga tahun yang akan datang jumlah umur mereka adalah 52 tahun, berapakah umur Ayah sekarang?",
+        opsi: ["A. 36 tahun", "B. 38 tahun", "C. 40 tahun", "D. 42 tahun", "E. 44 tahun"]
+    },
+    {
+        no: 44,
+        teks: "Dari 40 siswa kelas 10, terdapat 23 siswa menyukai Matematika, 18 siswa menyukai Fisika, dan 7 siswa menyukai kedua-duanya. Banyaknya siswa yang tidak menyukai keduanya adalah...",
+        opsi: ["A. 4 orang", "B. 5 orang", "C. 6 orang", "D. 7 orang", "E. 8 orang"]
+    },
+    {
+        no: 45,
+        teks: "Budi berkendara dari kota A ke kota B dengan kecepatan rata-rata 60 km/jam dan tiba dalam waktu 3 jam. Jika ia ingin tiba 30 menit lebih cepat, berapakah kecepatan rata-rata yang harus ia gunakan?",
+        opsi: ["A. 70 km/jam", "B. 72 km/jam", "C. 75 km/jam", "D. 80 km/jam", "E. 90 km/jam"]
+    },
+    {
+        no: 46,
+        teks: "Dua buah dadu bermata enam dilempar bersama-sama satu kali. Peluang munculnya mata dadu berjumlah 8 adalah...",
+        opsi: ["A. 3/36", "B. 4/36", "C. 5/36", "D. 6/36", "E. 7/36"]
+    },
+    {
+        no: 47,
+        teks: "Nilai rata-rata ujian matematika dari 29 siswa adalah 75. Jika nilai seorang siswa baru digabungkan, nilai rata-ratanya berubah menjadi 75,5. Nilai ujian siswa baru tersebut adalah...",
+        opsi: ["A. 80", "B. 85", "C. 90", "D. 95", "E. 100"]
+    },
+    {
+        no: 48,
+        teks: "Sebuah tangki silinder (tabung) memiliki jari-jari alas 70 cm dan tinggi 1 meter. Jika tangki tersebut diisi air hingga penuh, berapakah volume air di dalamnya? (Gunakan $\\pi = \\frac{22}{7}$, ingat 1 liter = 1 dm³)",
+        opsi: ["A. 1.540 liter", "B. 154 liter", "C. 15.400 liter", "D. 154.000 liter", "E. 15,4 liter"]
+    },
+    {
+        no: 49,
+        teks: "Jika $x = 3$ dan $y = -2$, berapakah nilai dari ekspresi aljabar $2x^2 - 3xy + y^2$?",
+        opsi: ["A. 12", "B. 24", "C. 30", "D. 34", "E. 40"]
+    },
+    {
+        no: 50,
+        teks: "Sebuah lapangan berbentuk persegi panjang memiliki keliling 80 meter. Jika perbandingan panjang dan lebarnya adalah 3 : 2, berapakah luas lapangan tersebut?",
+        opsi: ["A. 364 m²", "B. 376 m²", "C. 384 m²", "D. 400 m²", "E. 424 m²"]
+    },
+    {
+        no: 51,
+        teks: "Jika semua logam memuai saat dipanaskan, dan besi adalah logam, maka kesimpulan yang paling tepat adalah...",
+        opsi: ["A. Besi akan memuai jika dipanaskan", "B. Besi adalah satu-satunya logam yang memuai", "C. Hanya besi yang tidak memuai saat dipanaskan.", "D. Besi memuai tanpa perlu dipanaskan", "E. Logam adalah besi yang tidak memuai."]
+    },
+    {
+        no: 52,
+        teks: "Perhatikan hubungan kata berikut. Jantung : Darah = Paru-paru : ...",
+        opsi: ["A. Oksigen", "B. Bernapas", "C. Karbon Dioksida", "D. Udara", "E. Hydrogen"]
+    },
+    {
+        no: 53,
+        teks: "Sebuah wadah berbentuk silinder berisi air sepertiga bagian. Jika ditambahkan 10 liter air lagi, wadah tersebut menjadi berisi setengah bagian. Kapasitas total wadah tersebut adalah...",
+        opsi: ["A. 30 liter", "B. 45 liter", "C. 60 liter", "D. 120 liter", "E. 125 liter"]
+    },
+    {
+        no: 54,
+        teks: "Sebuah mobil bergerak dengan kecepatan tetap 60 km/jam selama 30 menit, kemudian mempercepat gerakannya menjadi 80 km/jam selama 15 menit. Jarak total yang ditempuh mobil tersebut adalah...",
+        opsi: ["A. 50 km", "B. 55 km", "C. 60 km", "D. 70 km", "E. 80 km"]
+    },
+    {
+        no: 55,
+        teks: "Lima orang siswa (A, B, C, D, E) mengikuti ujian. Nilai A lebih tinggi dari B, tetapi lebih rendah dari C. Nilai D lebih tinggi dari E tetapi lebih rendah dari B. Siapakah siswa yang mendapatkan nilai tertinggi kedua?",
+        opsi: ["A. D", "B. B", "C. C", "D. A", "E. E"]
+    },
+    {
+        no: 56,
+        teks: "Dua buah lampu, Lampu X menyala setiap 12 detik dan Lampu Y menyala setiap 18 detik. Jika kedua lampu menyala bersamaan pada detik ke-0, pada detik keberapa mereka akan menyala bersamaan untuk yang ketiga kalinya (tidak termasuk detik ke-0)?",
+        opsi: ["A. 36 detik", "B. 72 detik", "C. 108 detik", "D. 144 detik", "E. 154 detik"]
+    },
+    {
+        no: 57,
+        teks: "Dalam sebuah eksperimen genetika buatan, bakteri jenis Alfa membelah diri menjadi dua setiap 10 menit. Jika sebuah zat penghambat disemprotkan pada menit ke-25, proses pembelahan melambat menjadi setiap 20 menit. Apabila di awal terdapat 2 bakteri, berapa jumlah total bakteri setelah 45 menit?",
+        opsi: ["A. 16 bakteri", "B. 32 bakteri", "C. 48 bakteri", "D. 64 bakteri", "E. 78 bakteri"]
+    },
+    {
+        no: 58,
+        teks: "Tiga buah roda gigi A, B, dan C saling bersinggungan secara berurutan. Roda A memiliki 20 gigi, roda B memiliki 10 gigi, dan roda C memiliki 30 gigi. Jika roda A diputar sebanyak 15 kali putaran searah jarum jam, pernyataan yang paling tepat mengenai roda C adalah...",
+        opsi: ["A. Berputar 10 kali, berlawanan arah jarum jam", "B. Berputar 10 kali, searah jarum jam", "C. Berputar 5 kali, searah jarum jam", "D. Berputar 15 kali, berlawanan arah jarum jam", "E. Berputar 15 kali, Searah jarum jam"]
+    },
+    {
+        no: 59,
+        teks: "Sebuah bejana berisi campuran cairan kimia X dan Y dengan perbandingan 3 : 2. Jika 10 liter campuran dikeluarkan lalu digantikan dengan 10 liter cairan Y murni, perbandingan volume cairan X dan Y sekarang menjadi 1 : 1. Berapa volume total campuran di dalam bejana tersebut?",
+        opsi: ["A. 40 liter", "B. 50 liter", "C. 60 liter", "D. 100 liter", "E. 110 liter"]
+    },
+    {
+        no: 60,
+        teks: "Premis 1: Semua logam akan mengalami pemuaian volume jika dipanaskan pada suhu di atas 100°C. Premis 2: Zat Cair A tidak mengalami pemuaian volume saat dipanaskan pada suhu 110°C. Premis 3: Sebagian benda berbahan dasar besi dilapisi oleh lapisan pelindung yang terbuat dari Zat Cair A. Kesimpulan yang paling tepat saat sebuah benda besi berlapis Zat Cair A dipanaskan pada suhu 120°C adalah...",
+        opsi: ["A. Besi di bagian dalam tetap memuai, sementara lapisan luarnya (Zat Cair A) tidak memuai.", "B. Seluruh bagian benda tersebut sama sekali tidak akan mengalami pemuaian.", "C. Zat Cair A akan ikut memuai karena menempel pada besi yang memuai.", "D. Besi tidak memuai karena terhalang oleh lapisan Zat Cair A.", "E. Besi memuai karena terhalang oleh lapisan Zat Cair A"]
+    },
+    {
+        no: 61,
+        teks: "$295 \\times 295 + 100 \\times 100 - 2 \\times 295 \\times 100 = \\dots$",
+        opsi: ["A. 38.125", "B. 38.215", "C. 38.025", "D. 38.250", "E. 38.251"]
+    },
+    {
+        no: 62,
+        teks: "Diketahui $a$ dan $b$ bilangan asli memenuhi $a+b =14$ dan $a^2-b^2=28$, maka nilai $a^2+b^2$ adalah…",
+        opsi: ["A. 50", "B. 60", "C. 75", "D. 80", "E. 100"]
+    },
+    {
+        no: 63,
+        teks: "Nilai dari $(1 - \\frac{1}{2})(1 - \\frac{1}{3})(1 - \\frac{1}{4})(1 - \\frac{1}{5}) \\dots (1 - \\frac{1}{2016})$ adalah…",
+        opsi: ["A. $\\frac{1}{2011}$", "B. $\\frac{1}{2012}$", "C. $\\frac{1}{2013}$", "D. $\\frac{1}{2015}$", "E. $\\frac{1}{2016}$"]
+    },
+    {
+        no: 64,
+        teks: "Diberikan $a, b, c$ adalah anggota bilangan rill (nyata) $a+b+c=7$, dan $\\frac{1}{a+b} + \\frac{1}{b+c} + \\frac{1}{c+a} = \\frac{7}{10}$ maka nilai $\\frac{a}{b+c} + \\frac{b}{c+a} + \\frac{c}{a+b} =$",
+        opsi: ["A. $\\frac{19}{10}$", "B. $\\frac{21}{10}$", "C. $\\frac{23}{10}$", "D. $\\frac{25}{10}$", "E. $\\frac{27}{10}$"]
+    },
+    {
+        no: 65,
+        teks: "$x = \\sqrt{6 - 5\\sqrt{6 - 5\\sqrt{6 - 5\\dots}}}$ maka nilai $x$ adalah…",
+        opsi: ["A. -1", "B. 1", "C. 5", "D. 1 dan 5", "E. -1 dan -5"]
+    },
+    {
+        no: 66,
+        teks: "Jika $a$ dan $b$ bilangan real bukan nol, memenuhi persamaan $ab = a - b$, maka berapakah nilai dari $\\frac{a}{b} + \\frac{b}{a} - ab$?",
+        opsi: ["A. -2", "B. -3", "C. 12", "D. 13", "E. 2"]
+    },
+    {
+        no: 67,
+        teks: "Bentuk sederhana dari $\\sqrt{20 - 10\\sqrt{3}}$ adalah…",
+        opsi: ["A. $\\sqrt{15} - \\sqrt{5}$", "B. $\\sqrt{5} - \\sqrt{15}$", "C. $1 - \\sqrt{2}$", "D. $\\sqrt{2} - 1$", "E. $\\sqrt{15} + \\sqrt{5}$"]
+    },
+    {
+        no: 68,
+        teks: "$\\frac{5^{2026} - 5^{2024}}{5^{2024} - 5^{2022}} =$",
+        opsi: ["A. 1", "B. 5", "C. 25", "D. 125", "E. 625"]
+    },
+    {
+        no: 69,
+        teks: "Jika $x = 1234 \\times 1232 - 1233^2 + 1$ dan $y = 300^2 - 301 \\times 299$ maka",
+        opsi: ["A. x > y", "B. x < y", "C. x = y", "D. Hubungan x dan y tidak dapat di tentukan", "E. x = 2y"]
+    },
+    {
+        no: 70,
+        teks: "Sebidang tanah berukuran $25 \\text{ m} \\times 18 \\text{ m}$, ditengah tanah dibuat kolam berbentuk lingkaran dengan keliling $44 \\text{ m}$. Maka luas tanah di luar kolam adalah",
+        opsi: ["A. 196 m²", "B. 296 m²", "C. 298 m²", "D. 300 m²", "E. 302 m²"]
+    },
+    {
+        no: 71,
+        teks: "Secara harafiah sosiologi berasal dari dua kata yaitu socius dan logos, yang diartikan ilmu tentang berteman atau berkawan. Secara luas sosiologi diartikan ilmu tentang…",
+        opsi: ["A. Sosialisasi", "B. Konflik social", "C. Masyarakat", "D. Dinamika social", "E. Fenomena sosial"]
+    },
+    {
+        no: 72,
+        teks: "Seorang peneliti menyusun abstraksi dari hasil penelitian dan wawancara yang telah dilakukan di wilayah industri. Ia berusaha menjelaskan dampak pencemaran lingkungan bagi kehidupan warga sekitar. Hal ini berarti sosiologi memiliki ciri ....",
+        opsi: ["A. Kumulatif", "B. Nonetis", "C. Teoretis", "D. Kategoris", "E. Abstrak"]
+    },
+    {
+        no: 73,
+        teks: "Sistem lapisan sosial yang bersifat tertutup, di mana keanggotaannya diperoleh melalui kelahiran dan sulit untuk berpindah strata, disebut...",
+        opsi: ["A. Stratifikasi sosial terbuka", "B. Stratifikasi sosial tertutup", "C. Stratifikasi sosial campuran", "D. Diferensiasi social", "E. Mobilitas sosial horizontal"]
+    },
+    {
+        no: 74,
+        teks: "Dasar atau kriteria yang digunakan untuk menggolongkan seseorang ke dalam lapisan sosial tertentu, kecuali...",
+        opsi: ["A. Kekayaan", "B. Kekuasaan", "C. Kehormatan", "D. Ilmu pengetahuan", "E. Warna kulit"]
+    },
+    {
+        no: 75,
+        teks: "Dibawah ini tujuan adanya pengendalian sosial dalam masyarakat adalah…",
+        opsi: ["A. Untuk menjaga ketertiban sosial", "B. Nilai dan norma", "C. Pertumbuhan masyarakat kota", "D. Pertumbuhan masyarakat desa", "E. Banyaknya penduduk pindah"]
+    },
+    {
+        no: 76,
+        teks: "Seorang anggota TNI dipindahtugaskan dari Jakarta ke Surabaya dengan pangkat dan jabatan yang sama. Peristiwa ini termasuk contoh...",
+        opsi: ["A. Mobilitas vertikal naik", "B. Mobilitas vertikal turun", "C. Mobilitas horizontal", "D. Mobilitas structural", "E. Mobilitas antargenerasi"]
+    },
+    {
+        no: 77,
+        teks: "Di sebuah desa, harga kebutuhan pokok naik drastis akibat gagal panen, sehingga banyak warga kesulitan memenuhi kebutuhan sehari-hari dan angka kriminalitas meningkat. Berdasarkan kasus tersebut, gejala sosial yang muncul termasuk dalam kategori gejala...",
+        opsi: ["A. Gejala sosial budaya", "B. Gejala sosial ekonomi", "C. Gejala sosial politik", "D. Gejala sosial psikologis", "E. Gejala sosial keagamaan"]
+    },
+    {
+        no: 78,
+        teks: "Seorang peneliti menemukan bahwa tingginya angka pernikahan usia dini di suatu daerah berkaitan erat dengan rendahnya tingkat pendidikan, kemiskinan, dan norma budaya setempat. Analisis yang tepat mengenai gejala sosial tersebut adalah...",
+        opsi: ["A. Gejala sosial berdiri sendiri tanpa keterkaitan faktor lain", "B. Gejala sosial bersifat tunggal dan hanya disebabkan oleh satu factor", "C. Gejala sosial bersifat multidimensi karena melibatkan faktor pendidikan, ekonomi, dan budaya secara bersamaan", "D. Gejala sosial hanya dipengaruhi oleh faktor biologis semata", "E. Gejala sosial tidak dapat dianalisis secara sosiologis"]
+    },
+    {
+        no: 79,
+        teks: "Sebuah kota mengalami peningkatan jumlah pengangguran akibat otomatisasi industri, yang kemudian memicu meningkatnya kasus pencurian dan tawuran antarwarga. Jika seorang sosiolog ingin menerapkan solusi preventif berdasarkan akar masalah, langkah yang paling tepat adalah...",
+        opsi: ["A. Menambah jumlah aparat keamanan untuk menindak pelaku criminal", "B. Membangun lapangan pekerjaan baru dan program pelatihan keterampilan bagi pekerja yang terdampak otomatisasi", "C. Membiarkan masalah tersebut selesai dengan sendirinya", "D. Menutup akses teknologi otomatisasi di seluruh kota", "E. Memberikan hukuman berat tanpa mengatasi penyebab utamanya"]
+    },
+    {
+        no: 80,
+        teks: "Di sebuah sekolah, kasus perundungan (bullying) terus berulang meskipun pihak sekolah telah menerapkan sanksi tegas berupa skorsing bagi pelaku. Setelah dievaluasi, ternyata sanksi tersebut tidak diikuti dengan pendekatan persuasif, konseling, maupun penanaman nilai secara berkelanjutan kepada siswa. Berdasarkan ilustrasi tersebut, evaluasi yang paling tepat terhadap penerapan lembaga pengendalian sosial di sekolah tersebut adalah...",
+        opsi: ["A. Sanksi tegas sudah cukup efektif karena bersifat memaksa dan menimbulkan efek jera", "B. Pengendalian sosial represif saja tidak efektif tanpa diimbangi pengendalian sosial preventif dan persuasif yang berkelanjutan", "C. Perundungan tidak dapat dikendalikan melalui metode pengendalian sosial apa pun", "D. Sekolah seharusnya menghapus seluruh bentuk sanksi agar siswa tidak tertekan", "E. Pengendalian sosial hanya efektif jika dilakukan oleh aparat kepolisian, bukan pihak sekolah"]
+    },
+    {
+        no: 81,
+        teks: "Ilmu ekonomi lahir karena adanya kesenjangan antara kebutuhan manusia yang tidak terbatas dengan alat pemuas kebutuhan yang terbatas (kelangkaan). Sebagai warga negara yang menerapkan nilai Keadilan Sosial, cara paling mendasar untuk mengatasi kelangkaan sumber daya air bersih di lingkungan tempat tinggal adalah...",
+        opsi: ["A. Menggunakan air sebanyak-banyaknya mumpung mampu membayar tagihannya", "B. Membeli semua pasokan air tangki komersial untuk ditimbun di rumah sendiri", "C. Bertindak rasional dengan menghemat pemakaian air demi menjaga ketersediaan bersama", "D. Meminta pemerintah menutup semua industri yang menggunakan air", "E. Berhenti menggunakan air bersih dan beralih sepenuhnya ke air hujan"]
+    },
+    {
+        no: 82,
+        teks: "Seorang ekonom sedang mengamati dampak kebijakan pemerintah Indonesia dalam menetapkan Upah Minimum Provinsi (UMP) terhadap tingkat pengangguran secara keseluruhan di dalam negeri. Cabang ilmu ekonomi yang khusus mempelajari fenomena menyeluruh dan agregat nasional ini adalah...",
+        opsi: ["A. Ekonomi Mikro", "B. Ekonomi Makro", "C. Ekonomi Deskriptif", "D. Ekonomi Terapan", "E. Ekonomi Perusahaan"]
+    },
+    {
+        no: 83,
+        teks: "Berdasarkan Undang-Undang Nomor 4 Tahun 2023 tentang Pengembangan dan Penguatan Sektor Keuangan (UU P2SK), salah satu fungsi utama Bank Sentral (Bank Indonesia) adalah menjaga kestabilan nilai rupiah. Wujud kontribusi warga negara dalam mendukung tugas Bank Sentral tersebut sebagai bentuk cinta tanah air adalah...",
+        opsi: ["A. Menolak bertransaksi dan lebih memilih sistem barter tradisional", "B. Selalu menggunakan mata uang asing dalam setiap transaksi domestic", "C. Menggunakan uang Rupiah dengan bijak dan menjaga fisiknya agar tidak rusak (Cinta Rupiah)", "D. Menyimpan seluruh uang tunai di bawah kasur rumah tanpa lewat perbankan", "E. Membeli barang-barang mewah dari luar negeri secara berlebihan"]
+    },
+    {
+        no: 84,
+        teks: "Andi adalah seorang pelajar kelas X SMA yang menerima uang saku mingguan. Menjelang tahun ajaran baru, ia dihadapkan pada beberapa kebutuhan: membeli buku paket ekonomi, membeli sepatu baru (sepatu lamanya masih layak pakai), membeli tiket konser, dan menabung untuk dana darurat. Sesuai prinsip literasi finansial dan bela negara (menghindari sifat konsumtif), tindakan ekonomi terbaik Andi dalam menyusun skala prioritas adalah...",
+        opsi: ["A. Mendahulukan tiket konser dan sepatu baru agar terlihat modis di depan teman", "B. Menggunakan seluruh uangnya untuk menabung tanpa membeli buku paket", "C. Memprioritaskan membeli buku paket dan menabung dana darurat, serta menunda pembelian sepatu dan tiket konser", "D. Meminjam uang ke teman agar semua kebutuhan dan keinginannya terpenuhi sekaligus", "E. Membeli sepatu baru dan tiket konser menggunakan sistem pembayaran paylater (utang)"]
+    },
+    {
+        no: 85,
+        teks: "Pada saat menjelang Hari Raya Idulfitri, permintaan terhadap daging sapi di pasar tradisional meningkat tajam. Pada saat yang sama, pasokan sapi dari peternak lokal mengalami keterlambatan distribusi akibat cuaca ekstrem. Berdasarkan konsep hukum permintaan dan penawaran, serta nilai persatuan (tenggang rasa), kondisi ini akan menyebabkan...",
+        opsi: ["A. Harga daging sapi turun drastis dan masyarakat melakukan aksi borong", "B. Harga daging sapi melonjak naik; masyarakat yang bijak akan membatasi pembelian sesuai kebutuhan agar harga tidak semakin liar", "C. Penawaran daging sapi tetap stabil karena pedagang dilarang mencari keuntungan", "D. Kurva penawaran bergeser ke kanan yang menandakan barang melimpah", "E. Pemerintah langsung menutup pasar karena pedagang dianggap tidak nasionalis"]
+    },
+    {
+        no: 86,
+        teks: "Bu Siti membutuhkan modal cepat untuk mengembangkan usaha kerajinan tenun tradisional daerahnya guna melestarikan budaya bangsa. Ia tidak memiliki rekening bank tetapi memiliki seuntai kalung emas. Ia memutuskan mendatangi PT Pegadaian (Persero). Mekanisme yang terjadi pada lembaga keuangan non-bank tersebut mencakup...",
+        opsi: ["A. Bu Siti menabung uang dan mendapatkan bunga deposito bulanan", "B. Bu Siti menyerahkan emas sebagai jaminan untuk mendapatkan pinjaman modal, dan emasnya dapat ditebus kembali setelah utang dilunasi beserta sewa modal", "C. Pegadaian memotong komisi penjualan emas secara mutlak tanpa hak tebus", "D. Bu Siti membeli polis asuransi jiwa untuk perlindungan usaha tenunnya", "E. Pegadaian menerbitkan saham baru atas nama usaha tenun Bu Siti"]
+    },
+    {
+        no: 87,
+        teks: "Otoritas Jasa Keuangan (OJK) mencatat bahwa indeks literasi keuangan masyarakat Indonesia mengalami peningkatan, namun indeks inklusi keuangan (akses ke produk keuangan) melesat jauh lebih tinggi. Celah (gap) ini dimanfaatkan oleh oknum tidak bertanggung jawab untuk menyebarkan aplikasi Pinjaman Online (Pinjol) ilegal dan investasi bodong yang menyasar masyarakat awam hingga pelajar, memicu jeratan utang sistemik dan gangguan keamanan di masyarakat. Berdasarkan fenomena di atas, analisis hubungan yang paling tepat mengenai pentingnya literasi finansial yang kuat dalam kerangka memperkuat ketahanan nasional adalah...",
+        opsi: ["A. Literasi finansial yang rendah menyebabkan masyarakat menolak semua jenis teknologi perbankan modern", "B. Akses keuangan yang mudah (inklusi) tanpa dibarengi kecerdasan finansial (literasi) membuat masyarakat rentan terjebak penipuan digital yang dapat merusak stabilitas ekonomi mikro/keluarga", "C. OJK harus menutup seluruh lembaga keuangan digital agar masyarakat terhindar dari utang", "D. Pinjol ilegal sebenarnya membantu pertumbuhan ekonomi masyarakat miskin karena syaratnya mudah", "E. Ketahanan nasional tidak ada hubungannya dengan cara pengelolaan keuangan pribadi masyarakat"]
+    },
+    {
+        no: 88,
+        teks: "Pemerintah memberlakukan kebijakan Harga Eceran Tertinggi (HET) untuk minyak goreng demi melindungi daya beli masyarakat berpendapatan rendah akibat melonjaknya harga bahan baku CPO (Crude Palm Oil) di pasar internasional. Namun, dampak di lapangan menunjukkan terjadinya kelangkaan barang dan munculnya black market (pasar gelap) di mana barang dijual jauh di atas HET. Dari sudut pandang analisis pasar ekonomi dan penegakan hukum hukum/wawasan kebangsaan, fenomena kelangkaan ini terjadi karena...",
+        opsi: ["A. Kebijakan HET berada di atas harga keseimbangan pasar sehingga produsen berebut menjual barang", "B. HET ditetapkan di bawah harga keseimbangan pasar, membuat produsen enggan menawarkan barang karena potensi rugi, sementara permintaan melonjak drastis, memicu tindakan spekulan penimbun yang tidak bertanggung jawab", "C. Konsumen mendadak tidak menyukai minyak goreng akibat adanya intervensi pemerintah", "D. Hukum permintaan tidak berlaku ketika pemerintah ikut campur dalam pasar", "E. Seluruh produsen minyak goreng nasional sepakat menghentikan total produksinya untuk selamanya"]
+    },
+    {
+        no: 89,
+        teks: "Bapak Proklamator kita, Drs. Mohammad Hatta, menggagas bahwa sistem ekonomi Indonesia tidak boleh menganut liberalisme murni (kapitalisme) yang menindas kaum lemah, dan tidak pula menganut etatisme ekstrem (komunisme) yang mematikan inisiatif individu. Sistem Ekonomi Pancasila harus berakar pada demokrasi ekonomi yang mandiri. Di era digitalisasi saat ini, ketika platform e-commerce asing raksasa mengancam eksistensi pasar tradisional dan UMKM lokal melalui praktik predatory pricing (jual rugi demi mematikan pesaing), langkah evaluatif-strategis apa yang harus dirumuskan pemerintah berdasarkan pemikiran Bung Hatta tersebut?",
+        opsi: ["A. Menutup total seluruh akses internet dan melarang perdagangan digital di Indonesia demi melindungi pasar tradisional secara absolut", "B. Membiarkan mekanisme pasar bebas berjalan sepenuhnya karena itu merupakan konsekuensi modernisasi global", "C. Membuat regulasi ketat terkait tata kelola perdagangan digital, melarang predatory pricing, serta memberikan pendampingan teknologi kepada UMKM lokal agar tercipta keadilan ekonomi", "D. Memberikan subsidi modal tunai terus-menerus kepada UMKM tanpa ada pelatihan digitalisasi", "E. Mengambil alih seluruh kepemilikan UMKM menjadi milik negara agar modalnya tidak kalah bersaing"]
+    },
+    {
+        no: 90,
+        teks: "Perkembangan teknologi melahirkan fenomena Quick Response Code Indonesian Standard (QRIS) dan Digital Banking yang mempermudah transaksi non-tunai (cashless society). Di satu sisi, teknologi ini mempercepat perputaran uang dan mempermudah inklusi keuangan. Di sisi lain, kemudahan bertransaksi digital ini meningkatkan perilaku konsumtif (seperti maraknya impulsive buying atau belanja spontan tanpa rencana) di kalangan pelajar SMA. Sebagai generasi muda yang cerdas finansial dan memiliki semangat bela negara (menjaga stabilitas ekonomi pribadi/nasional), strategi pengelolaan keuangan paling komprehensif yang bisa Anda ciptakan dan terapkan adalah...",
+        opsi: ["A. Menghapus semua aplikasi dompet digital di ponsel dan kembali ke metode penyimpanan uang fisik secara total", "B. Memanfaatkan kemudahan transaksi digital untuk berbelanja kapan saja, lalu mencari pinjaman", "C. Memanfaatkan fitur budgeting (pos anggaran digital) dan otomatisasi tabungan di awal menerima uang saku, serta membiasakan self-control dengan menjeda keputusan membeli barang non-pokok minimal 2x24 jam", "D. Meminta orang tua memotong uang saku agar tidak memiliki kesempatan untuk bertransaksi digital", "E. Menolak menggunakan sistem non-tunai karena menganggapnya produk budaya asing yang merusak moral bangsa"]
+    }
+];
         // Generate soal dummy no 4 sampai 90 untuk kelengkapan navigasi CBT
         for (let i = 4; i <= totalSoal; i++) {
             bankSoal.push({
