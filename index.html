@@ -108,6 +108,15 @@
         .btn-akhiri.active { cursor: pointer; opacity: 1; }
 
     </style>
+<script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
 
@@ -749,6 +758,44 @@
             });
 
             updateGridUI();
+            function renderSoal(index) {
+            let soal = bankSoal[index];
+            document.getElementById('current-q-no').innerText = soal.no;
+            document.getElementById('q-text').innerHTML = soal.teks;
+            
+            let ulOptions = document.getElementById('q-options');
+            ulOptions.innerHTML = '';
+
+            // Render 5 Pilihan
+            soal.opsi.forEach((opt, optIndex) => {
+                let li = document.createElement('li');
+                let abjad = ['A','B','C','D','E'][optIndex];
+                
+                // Jika sudah pernah dijawab
+                if(jawabanPeserta[index].dijawab === abjad) {
+                    li.classList.add('selected');
+                }
+
+                li.onclick = () => pilihJawaban(abjad);
+                
+                // Pisahkan label (A/B/C/D/E) dengan teks agar rapi
+                let teksBersih = opt.substring(3); 
+                li.innerHTML = `<span class="opt-label">${abjad}.</span> <span>${teksBersih}</span>`;
+                ulOptions.appendChild(li);
+            });
+
+            updateGridUI();
+
+            // ==========================================
+            // TAMBAHKAN KODE INI UNTUK MERENDER RUMUS
+            // ==========================================
+            if (window.MathJax) {
+                MathJax.typesetPromise([
+                    document.getElementById('q-text'), 
+                    document.getElementById('q-options')
+                ]).catch((err) => console.log(err.message));
+            }
+        }
         }
 
         function pilihJawaban(abjad) {
